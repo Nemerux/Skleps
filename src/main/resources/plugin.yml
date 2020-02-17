@@ -1,0 +1,4 @@
+name: SklepsPlugin
+main: me.hikaricode.kamlax.SklepsPlugin
+version: 3.0-SNAPSHOT
+author: kamlaxDEV

